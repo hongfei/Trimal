@@ -6,8 +6,7 @@
 import UIKit
 
 class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
-    var dateTime: DateTime = DateTime()
-    var locales: [Locale] = []
+    var timezones: [UserTimeZone] = []
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -16,11 +15,14 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
 
+        self.dataSource = self
+        self.delegate = self
+        self.tableFooterView = UIView(frame: CGRect.zero)
         self.register(WorldTimeCell.self, forCellReuseIdentifier: "WorldTimeCell")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.timezones.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,12 +31,21 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
         }
 
         if let worldTimeCell = cell as? WorldTimeCell {
-            let locale = self.locales[indexPath.row]
-            worldTimeCell.loadViewData(dateTime: self.dateTime, with: locale)
+            let locale = self.timezones[indexPath.row]
+            worldTimeCell.loadViewData(date: Date(), timezone: self.timezones[indexPath.row])
             return worldTimeCell
         } else {
             return UITableViewCell()
         }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return WorldTimeCell.HEIGHT
+    }
+    
+    func loadViewData(timezones: [UserTimeZone]) {
+        self.timezones = timezones
+        self.reloadData()
     }
 }
 

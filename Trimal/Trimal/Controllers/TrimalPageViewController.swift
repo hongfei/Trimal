@@ -10,8 +10,8 @@ import UIKit
 import PinLayout
 
 class TrimalPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-    var worldTimeViewController = WorldTimeViewController()
-    var worldAlarmViewController = WorldAlarmViewController()
+    var worldTimeViewController = wrappedIntoNavigationController(WorldTimeViewController())
+    var worldAlarmViewController = wrappedIntoNavigationController(WorldAlarmViewController())
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -40,7 +40,7 @@ class TrimalPageViewController: UIPageViewController, UIPageViewControllerDataSo
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if let _ = viewController as? WorldAlarmViewController {
+        if viewController == self.worldAlarmViewController {
             return self.worldTimeViewController
         } else {
             return nil
@@ -48,7 +48,7 @@ class TrimalPageViewController: UIPageViewController, UIPageViewControllerDataSo
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if let _ = viewController as? WorldTimeViewController {
+        if viewController == self.worldTimeViewController {
             return self.worldAlarmViewController
         } else {
             return nil
@@ -63,4 +63,7 @@ class TrimalPageViewController: UIPageViewController, UIPageViewControllerDataSo
         return 0
     }
 
+    private static func wrappedIntoNavigationController(_ viewController: UIViewController) -> UINavigationController {
+        return UINavigationController(rootViewController: viewController)
+    }
 }

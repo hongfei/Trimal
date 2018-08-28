@@ -9,15 +9,15 @@ class DateUtil {
     static let dateFormatter = DateFormatter()
     static let timeFormatter = DateFormatter()
 
-    public static func formatDate(date: Date, with locale: Locale) -> String {
+    public static func formatDate(date: Date, with timezone: TimeZone) -> String {
         dateFormatter.dateFormat = "MMM dd, yyyy"
-        dateFormatter.locale = locale
+        dateFormatter.timeZone = timezone
         return dateFormatter.string(from: date)
     }
 
-    public static func formatTime(date: Date, with locale: Locale) -> String {
+    public static func formatTime(date: Date, with timezone: TimeZone) -> String {
         timeFormatter.dateFormat = "HH:mm"
-        timeFormatter.locale = locale
+        timeFormatter.timeZone = timezone
         return timeFormatter.string(from: date)
     }
 }

@@ -9,12 +9,19 @@ import PinLayout
 class WorldTimeViewController: UIViewController {
     var worldTimeList = WorldTimeList()
 
+    override var navigationItem: UINavigationItem {
+        let navItem = UINavigationItem()
+        navItem.title = "Time"
+        return navItem
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.yellow
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.92, green: 0.97, blue: 0.97, alpha: 1)
 
-        self.worldTimeList.locales = [Locale(identifier: "en_US_POSIX")]
+        self.view.addSubview(self.worldTimeList)
+        self.worldTimeList.loadViewData(timezones: MockData.timezones)
     }
 
     override func viewDidLayoutSubviews() {

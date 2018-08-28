@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		22F2EAF1F1E83CE864C071D0 /* Pods_Trimal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A5D2FD9F6CA1E262AA9B6A /* Pods_Trimal.framework */; };
 		4130721F0334A22522EEEEDF /* WorldTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307F049FF1DFDAFEB9D69C /* WorldTimeCell.swift */; };
-		41307576862AC5140166B201 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307489B83A7645F24C4BEE /* DateTime.swift */; };
 		413078BD7F6A626F3CBF64D3 /* WorldTimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413070024E6462404C2CA6F7 /* WorldTimeList.swift */; };
 		41307950CDA63F833678A02A /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307D30BA63970D126CDDC1 /* DateUtil.swift */; };
 		41307CD9159E55FEB0BC0B17 /* WorldTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307C70F9E2E5E61D074FDC /* WorldTimeViewController.swift */; };
@@ -17,11 +16,13 @@
 		AB0AE6A22134FAE8007E5B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0AE6A12134FAE8007E5B5C /* AppDelegate.swift */; };
 		AB0AE6AD2134FAEA007E5B5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0AE6AC2134FAEA007E5B5C /* Assets.xcassets */; };
 		AB0AE6B92134FC2D007E5B5C /* TrimalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0AE6B82134FC2D007E5B5C /* TrimalPageViewController.swift */; };
+		B6F6906B914E98E7827A9A5D /* FontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */; };
+		B6F69169A4834542CA7A94BE /* UserTimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69B24B9D31E22F4CBBDAB /* UserTimeZone.swift */; };
+		B6F69C852B235A4C15FDCC38 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6998A6C64116C79DB9329 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		413070024E6462404C2CA6F7 /* WorldTimeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeList.swift; sourceTree = "<group>"; };
-		41307489B83A7645F24C4BEE /* DateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
 		41307C70F9E2E5E61D074FDC /* WorldTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeViewController.swift; sourceTree = "<group>"; };
 		41307D30BA63970D126CDDC1 /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		41307E6F7E0B0067A6386BA3 /* WorldAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldAlarmViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +34,9 @@
 		AB0AE6B12134FAEA007E5B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB0AE6B82134FC2D007E5B5C /* TrimalPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimalPageViewController.swift; sourceTree = "<group>"; };
 		B6A5D2FD9F6CA1E262AA9B6A /* Pods_Trimal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trimal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6F6998A6C64116C79DB9329 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontUtil.swift; sourceTree = "<group>"; };
+		B6F69B24B9D31E22F4CBBDAB /* UserTimeZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeZone.swift; sourceTree = "<group>"; };
 		E72368F1AD0AA7AA18688AFD /* Pods-Trimal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trimal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trimal/Pods-Trimal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				41307D30BA63970D126CDDC1 /* DateUtil.swift */,
+				B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */,
+				B6F6998A6C64116C79DB9329 /* MockData.swift */,
 			);
 			path = Utilties;
 			sourceTree = "<group>";
@@ -68,7 +74,7 @@
 		4130705F2DA623E5744635A7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				41307489B83A7645F24C4BEE /* DateTime.swift */,
+				B6F69B24B9D31E22F4CBBDAB /* UserTimeZone.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -265,9 +271,11 @@
 				41307CD9159E55FEB0BC0B17 /* WorldTimeViewController.swift in Sources */,
 				413078BD7F6A626F3CBF64D3 /* WorldTimeList.swift in Sources */,
 				4130721F0334A22522EEEEDF /* WorldTimeCell.swift in Sources */,
-				41307576862AC5140166B201 /* DateTime.swift in Sources */,
 				41307950CDA63F833678A02A /* DateUtil.swift in Sources */,
 				41307EB1861EFD0C3ABEEA4E /* WorldAlarmViewController.swift in Sources */,
+				B6F6906B914E98E7827A9A5D /* FontUtil.swift in Sources */,
+				B6F69C852B235A4C15FDCC38 /* MockData.swift in Sources */,
+				B6F69169A4834542CA7A94BE /* UserTimeZone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
