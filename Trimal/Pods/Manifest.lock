@@ -1,16 +1,20 @@
 PODS:
   - PinLayout (1.7.11)
+  - SwiftIcons (2.2.0)
 
 DEPENDENCIES:
   - PinLayout
+  - SwiftIcons (~> 2.2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - PinLayout
+    - SwiftIcons
 
 SPEC CHECKSUMS:
   PinLayout: 98a38fd83aba58fa6f1e0543952313259aa0a212
+  SwiftIcons: e7eb9bf2b475d6bdd8b37c5bdedc6d120aab0829
 
-PODFILE CHECKSUM: 9682acf198053dd1835442ba6eb7c3d2d08eca42
+PODFILE CHECKSUM: 0157255f9c9aa8cf3997b613fd4ce9f3ac6e3a42
 
 COCOAPODS: 1.5.3
