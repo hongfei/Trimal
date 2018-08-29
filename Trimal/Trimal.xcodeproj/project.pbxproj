@@ -11,6 +11,7 @@
 		4130721F0334A22522EEEEDF /* WorldTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307F049FF1DFDAFEB9D69C /* WorldTimeCell.swift */; };
 		413078BD7F6A626F3CBF64D3 /* WorldTimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413070024E6462404C2CA6F7 /* WorldTimeList.swift */; };
 		41307950CDA63F833678A02A /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307D30BA63970D126CDDC1 /* DateUtil.swift */; };
+		41307B6AD29B990BD3257785 /* WorldTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307BE6316C20D563093F60 /* WorldTimeSlider.swift */; };
 		41307CD9159E55FEB0BC0B17 /* WorldTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307C70F9E2E5E61D074FDC /* WorldTimeViewController.swift */; };
 		41307EB1861EFD0C3ABEEA4E /* WorldAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307E6F7E0B0067A6386BA3 /* WorldAlarmViewController.swift */; };
 		AB0AE6A22134FAE8007E5B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0AE6A12134FAE8007E5B5C /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		413070024E6462404C2CA6F7 /* WorldTimeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeList.swift; sourceTree = "<group>"; };
+		41307BE6316C20D563093F60 /* WorldTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeSlider.swift; sourceTree = "<group>"; };
 		41307C70F9E2E5E61D074FDC /* WorldTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeViewController.swift; sourceTree = "<group>"; };
 		41307D30BA63970D126CDDC1 /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		41307E6F7E0B0067A6386BA3 /* WorldAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldAlarmViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			children = (
 				413070024E6462404C2CA6F7 /* WorldTimeList.swift */,
 				41307F049FF1DFDAFEB9D69C /* WorldTimeCell.swift */,
+				41307BE6316C20D563093F60 /* WorldTimeSlider.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				B6F6906B914E98E7827A9A5D /* FontUtil.swift in Sources */,
 				B6F69C852B235A4C15FDCC38 /* MockData.swift in Sources */,
 				B6F69169A4834542CA7A94BE /* UserTimeZone.swift in Sources */,
+				41307B6AD29B990BD3257785 /* WorldTimeSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

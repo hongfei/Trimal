@@ -32,8 +32,10 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
         }
 
         if let worldTimeCell = cell as? WorldTimeCell {
-            let locale = self.timezones[indexPath.row]
-            worldTimeCell.loadViewData(date: Date(), timezone: self.timezones[indexPath.row])
+            worldTimeCell.loadViewData(
+                    date: Date(),
+                    timezone: self.timezones[indexPath.row],
+                    showAdjuster: self.expandedCellIndex == indexPath.row)
             return worldTimeCell
         } else {
             return UITableViewCell()
@@ -42,15 +44,16 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == self.expandedCellIndex {
-            return WorldTimeCell.HEIGHT + 30
+            return WorldTimeCell.HEIGHT + WorldTimeCell.SLIDER_HEIGHT
         } else {
             return WorldTimeCell.HEIGHT
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.expandedCellIndex = indexPath.row
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        let previous = IndexPath(item: self.expandedCellIndex, section: 0)
+        self.expandedCellIndex = indexPath.row == previous.row ? -1 : indexPath.row
+        tableView.reloadRows(at: [previous, indexPath], with: .automatic)
     }
 
     func loadViewData(timezones: [UserTimeZone]) {
