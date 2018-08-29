@@ -7,6 +7,7 @@ import UIKit
 
 class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
     var timezones: [UserTimeZone] = []
+    var expandedCellIndex = -1
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -40,9 +41,18 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return WorldTimeCell.HEIGHT
+        if indexPath.row == self.expandedCellIndex {
+            return WorldTimeCell.HEIGHT + 30
+        } else {
+            return WorldTimeCell.HEIGHT
+        }
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.expandedCellIndex = indexPath.row
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
     func loadViewData(timezones: [UserTimeZone]) {
         self.timezones = timezones
         self.reloadData()
