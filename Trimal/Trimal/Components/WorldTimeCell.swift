@@ -59,6 +59,7 @@ class WorldTimeCell: UITableViewCell {
         self.timeLabel.pin.below(of: self.dateLabel, aligned: .right).width(140).height(50)
 
         if self.hasNickName {
+            self.locationNameLabel.isHidden = false
             self.locationNameLabel.pin.left(pin.safeArea).top(pin.safeArea).height(25).before(of: self.dateLabel).marginRight(10)
             self.nickNameLabel.pin.below(of: self.locationNameLabel, aligned: .left).before(of: self.timeLabel).marginRight(10).height(50)
         } else {
