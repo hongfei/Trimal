@@ -1,20 +1,24 @@
 PODS:
   - PinLayout (1.7.11)
   - SwiftIcons (2.2.0)
+  - YIInnerShadowView (1.2.0)
 
 DEPENDENCIES:
   - PinLayout
   - SwiftIcons (~> 2.2.0)
+  - YIInnerShadowView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - PinLayout
     - SwiftIcons
+    - YIInnerShadowView
 
 SPEC CHECKSUMS:
   PinLayout: 98a38fd83aba58fa6f1e0543952313259aa0a212
   SwiftIcons: e7eb9bf2b475d6bdd8b37c5bdedc6d120aab0829
+  YIInnerShadowView: c1b7c0a03072518447908ec4ff2bd9e9ae1246dc
 
-PODFILE CHECKSUM: 0157255f9c9aa8cf3997b613fd4ce9f3ac6e3a42
+PODFILE CHECKSUM: 40dffc5974a74c8378079782971b603d582660c3
 
 COCOAPODS: 1.5.3

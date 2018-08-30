@@ -7,6 +7,7 @@ import UIKit
 
 class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
     var timezones: [UserTimeZone] = []
+    var currentTime: Date = Date()
     var expandedCellIndex = -1
 
     required init?(coder aDecoder: NSCoder) {
@@ -33,7 +34,7 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
 
         if let worldTimeCell = cell as? WorldTimeCell {
             worldTimeCell.loadViewData(
-                    date: Date(),
+                    date: self.currentTime,
                     timezone: self.timezones[indexPath.row],
                     showAdjuster: self.expandedCellIndex == indexPath.row)
             return worldTimeCell
@@ -44,7 +45,7 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == self.expandedCellIndex {
-            return WorldTimeCell.HEIGHT + WorldTimeCell.SLIDER_HEIGHT
+            return WorldTimeCell.HEIGHT + WorldTimeSlider.HEIGHT
         } else {
             return WorldTimeCell.HEIGHT
         }
@@ -56,7 +57,8 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
         tableView.reloadRows(at: [previous, indexPath], with: .automatic)
     }
 
-    func loadViewData(timezones: [UserTimeZone]) {
+    func loadViewData(time: Date, timezones: [UserTimeZone]) {
+        self.currentTime = time
         self.timezones = timezones
         self.reloadData()
     }

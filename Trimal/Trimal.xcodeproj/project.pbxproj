@@ -19,6 +19,8 @@
 		AB0AE6B92134FC2D007E5B5C /* TrimalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0AE6B82134FC2D007E5B5C /* TrimalPageViewController.swift */; };
 		B6F6906B914E98E7827A9A5D /* FontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */; };
 		B6F69169A4834542CA7A94BE /* UserTimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69B24B9D31E22F4CBBDAB /* UserTimeZone.swift */; };
+		B6F692F1F556900D50C3243C /* WorldTimeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69DBD044112B35E7BD59C /* WorldTimeSliderCell.swift */; };
+		B6F697DEA635B6996BC6696D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69A58C7559C23E9BF3F1D /* UIViewExtension.swift */; };
 		B6F69C852B235A4C15FDCC38 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6998A6C64116C79DB9329 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +39,10 @@
 		AB0AE6B82134FC2D007E5B5C /* TrimalPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimalPageViewController.swift; sourceTree = "<group>"; };
 		B6A5D2FD9F6CA1E262AA9B6A /* Pods_Trimal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trimal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F6998A6C64116C79DB9329 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		B6F69A58C7559C23E9BF3F1D /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontUtil.swift; sourceTree = "<group>"; };
 		B6F69B24B9D31E22F4CBBDAB /* UserTimeZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeZone.swift; sourceTree = "<group>"; };
+		B6F69DBD044112B35E7BD59C /* WorldTimeSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeSliderCell.swift; sourceTree = "<group>"; };
 		E72368F1AD0AA7AA18688AFD /* Pods-Trimal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trimal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trimal/Pods-Trimal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +73,7 @@
 				41307D30BA63970D126CDDC1 /* DateUtil.swift */,
 				B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */,
 				B6F6998A6C64116C79DB9329 /* MockData.swift */,
+				B6F69A58C7559C23E9BF3F1D /* UIViewExtension.swift */,
 			);
 			path = Utilties;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 				413070024E6462404C2CA6F7 /* WorldTimeList.swift */,
 				41307F049FF1DFDAFEB9D69C /* WorldTimeCell.swift */,
 				41307BE6316C20D563093F60 /* WorldTimeSlider.swift */,
+				B6F69DBD044112B35E7BD59C /* WorldTimeSliderCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -251,11 +257,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Trimal/Pods-Trimal-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
+				"${BUILT_PRODUCTS_DIR}/YIInnerShadowView/YIInnerShadowView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YIInnerShadowView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -280,6 +288,8 @@
 				B6F69C852B235A4C15FDCC38 /* MockData.swift in Sources */,
 				B6F69169A4834542CA7A94BE /* UserTimeZone.swift in Sources */,
 				41307B6AD29B990BD3257785 /* WorldTimeSlider.swift in Sources */,
+				B6F692F1F556900D50C3243C /* WorldTimeSliderCell.swift in Sources */,
+				B6F697DEA635B6996BC6696D /* UIViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

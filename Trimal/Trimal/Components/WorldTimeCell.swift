@@ -8,7 +8,6 @@ import PinLayout
 
 class WorldTimeCell: UITableViewCell {
     public static let HEIGHT = CGFloat(100)
-    public static let SLIDER_HEIGHT = CGFloat(45)
     var hasNickName: Bool = false
     var showAdjuster: Bool = false
     var timeLabel =  UILabel()
@@ -29,7 +28,6 @@ class WorldTimeCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         let view = self.contentView
-
         self.dateLabel.font = FontUtil.font(of: 17)
         self.dateLabel.textAlignment = .right
 
@@ -69,11 +67,10 @@ class WorldTimeCell: UITableViewCell {
 
         if self.showAdjuster {
             self.timeAdjuster.isHidden = false
-            self.timeAdjuster.pin.bottom().horizontally().height(45)
+            self.timeAdjuster.pin.bottom().horizontally().height(WorldTimeSlider.HEIGHT)
         } else {
             self.timeAdjuster.isHidden = true
         }
-
     }
 
     func loadViewData(date: Date, timezone: UserTimeZone, showAdjuster: Bool) {
