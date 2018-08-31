@@ -12,6 +12,7 @@ class WorldTimeSlider: UIView, UICollectionViewDataSource, UICollectionViewDeleg
     var currentTime: Date = Date()
     var calendar: Calendar = DateUtil.calendar
     var currentOffset: CGFloat = 0
+    var inDragging: Bool = false
 
     var slider: UICollectionView!
     var centerRedLine: UILabel = UILabel()
@@ -75,6 +76,9 @@ class WorldTimeSlider: UIView, UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if !self.inDragging {
+            return
+        }
         let seconds = (scrollView.contentOffset.x - self.currentOffset) / WorldTimeSliderLayout.SLOT_WIDTH * 3600
         if let newTime = self.calendar.date(byAdding: .second, value: Int(seconds), to: self.currentTime) {
             TimeCenter.publishNewTime(time: newTime)
@@ -82,10 +86,12 @@ class WorldTimeSlider: UIView, UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.inDragging = true
         TimeCenter.toggleTimer(disableTimer: true)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.inDragging = false
         let seconds = (scrollView.contentOffset.x - self.currentOffset) / WorldTimeSliderLayout.SLOT_WIDTH * 3600
         if let newTime = self.calendar.date(byAdding: .second, value: Int(seconds), to: self.currentTime) {
             if abs(newTime.timeIntervalSince(self.currentTime)) < 20 {

@@ -99,6 +99,7 @@ class WorldTimeCell: UITableViewCell, TimeListener {
     func onTimeUpdate(time: Date) {
         self.dateLabel.text = DateUtil.formatDate(time: time, with: self.timezone.timezone)
         self.timeLabel.text = DateUtil.formatTime(time: time, with: self.timezone.timezone)
+        self.timeAdjuster.loadViewData(time: time, timezone: self.timezone)
     }
 }
 
