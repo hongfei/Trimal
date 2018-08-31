@@ -6,11 +6,14 @@
 import UIKit
 import PinLayout
 
-class WorldTimeCell: UITableViewCell {
+class WorldTimeCell: UITableViewCell, TimeListener {
     public static let HEIGHT = CGFloat(100)
+    var timezone: UserTimeZone!
     var hasNickName: Bool = false
     var showAdjuster: Bool = false
-    var timeLabel =  UILabel()
+    var time: Date = Date()
+
+    var timeLabel = UILabel()
     var dateLabel = UILabel()
     var nickNameLabel = UILabel()
     var locationNameLabel = UILabel()
@@ -73,7 +76,9 @@ class WorldTimeCell: UITableViewCell {
         }
     }
 
-    func loadViewData(date: Date, timezone: UserTimeZone, showAdjuster: Bool) {
+    func loadViewData(timezone: UserTimeZone, showAdjuster: Bool) {
+        let time = TimeCenter.storedTime
+        self.timezone = timezone
         if let nick = timezone.nickName {
             self.nickNameLabel.text = nick
             self.locationNameLabel.text = timezone.location
@@ -83,11 +88,20 @@ class WorldTimeCell: UITableViewCell {
             self.locationNameLabel.text = nil
             self.hasNickName = false
         }
-        self.dateLabel.text = DateUtil.formatDate(date: date, with: timezone.timezone)
-        self.timeLabel.text = DateUtil.formatTime(date: date, with: timezone.timezone)
+        self.dateLabel.text = DateUtil.formatDate(time: time, with: self.timezone.timezone)
+        self.timeLabel.text = DateUtil.formatTime(time: time, with: self.timezone.timezone)
         self.showAdjuster = showAdjuster
-
         self.setNeedsLayout()
         self.layoutIfNeeded()
+        self.timeAdjuster.loadViewData(time: time, timezone: self.timezone)
     }
+
+    func onTimeUpdate(time: Date) {
+        self.dateLabel.text = DateUtil.formatDate(time: time, with: self.timezone.timezone)
+        self.timeLabel.text = DateUtil.formatTime(time: time, with: self.timezone.timezone)
+    }
+}
+
+protocol WorldTimeCellDelegate {
+    func didAdjustToTime(time: Date)
 }

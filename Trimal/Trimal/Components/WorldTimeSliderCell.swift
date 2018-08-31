@@ -8,6 +8,7 @@ import PinLayout
 
 class WorldTimeSliderCell: UICollectionViewCell {
     var timeLabel = UILabel()
+    var markLabel = UILabel()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -17,17 +18,23 @@ class WorldTimeSliderCell: UICollectionViewCell {
         super.init(frame: frame)
 
         self.backgroundColor = .white
+
+        self.markLabel.backgroundColor = .black
+        self.addSubview(self.markLabel)
+
         self.timeLabel.textAlignment = .center
+        self.timeLabel.backgroundColor = .white
         self.addSubview(self.timeLabel)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.timeLabel.pin.all()
+        self.markLabel.pin.vertically().hCenter().width(2)
+        self.timeLabel.pin.horizontally().vCenter().height(26)
     }
 
-    func reloadViewData(position: String) {
-        self.timeLabel.text = position
+    func loadViewData(hour: String) {
+        self.timeLabel.text = hour
     }
 }

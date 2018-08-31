@@ -6,9 +6,8 @@
 import UIKit
 import PinLayout
 
-class WorldTimeViewController: UIViewController {
+class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     var worldTimeList = WorldTimeList()
-    var calendar = Calendar.current
     var timezones: [UserTimeZone] = MockData.timezones
     var timer: Timer!
 
@@ -23,12 +22,9 @@ class WorldTimeViewController: UIViewController {
 
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.92, green: 0.97, blue: 0.97, alpha: 1)
         self.view.addSubview(self.worldTimeList)
+        self.worldTimeList.loadViewData(timezones: self.timezones)
 
-        let current = Date()
-        self.worldTimeList.loadViewData(time: current, timezones: self.timezones)
-
-        let seconds = 60 - calendar.component(.second, from: current)
-        self.timer = Timer(fire: calendar.date(byAdding: .second, value: seconds, to: current)!, interval: 60, repeats: true, block: timerFired)
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
         RunLoop.main.add(self.timer, forMode: .commonModes)
     }
 
@@ -39,13 +35,17 @@ class WorldTimeViewController: UIViewController {
         self.worldTimeList.pin.all(pin.safeArea)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TimeCenter.toggleTimer(disableTimer: false)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.timer.invalidate()
     }
 
-    @IBAction func timerFired(_ timer: Timer) {
-        let currentTime = Date()
-        self.worldTimeList.loadViewData(time: currentTime, timezones: self.timezones)
+    @IBAction func timerFired() {
+        TimeCenter.timerPublishTime(time: Date())
     }
 }
