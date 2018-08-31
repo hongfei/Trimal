@@ -77,11 +77,21 @@ class WorldTimeSlider: UIView, UICollectionViewDataSource, UICollectionViewDeleg
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let seconds = (scrollView.contentOffset.x - self.currentOffset) / WorldTimeSliderLayout.SLOT_WIDTH * 3600
         if let newTime = self.calendar.date(byAdding: .second, value: Int(seconds), to: self.currentTime) {
-            if abs(newTime.timeIntervalSince(Date())) < 10 {
+            TimeCenter.publishNewTime(time: newTime)
+        }
+    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        TimeCenter.toggleTimer(disableTimer: true)
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let seconds = (scrollView.contentOffset.x - self.currentOffset) / WorldTimeSliderLayout.SLOT_WIDTH * 3600
+        if let newTime = self.calendar.date(byAdding: .second, value: Int(seconds), to: self.currentTime) {
+            if abs(newTime.timeIntervalSince(self.currentTime)) < 20 {
                 TimeCenter.toggleTimer(disableTimer: false)
             } else {
                 TimeCenter.toggleTimer(disableTimer: true)
-                TimeCenter.publishNewTime(time: newTime)
             }
         }
     }
