@@ -102,7 +102,7 @@ class WorldTimeSlider: UIView, UICollectionViewDataSource, UICollectionViewDeleg
         }
     }
 
-    func loadViewData(time: Date, timezone: UserTimeZone) {
+    func loadViewData(timezone: UserTimeZone, time: Date) {
         self.currentTime = Date()
         self.calendar.timeZone = timezone.timezone
         self.slider.reloadData()

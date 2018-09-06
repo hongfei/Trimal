@@ -9,14 +9,11 @@ import PinLayout
 class WorldTimeCell: UITableViewCell, TimeListener {
     public static let HEIGHT = CGFloat(100)
     var timezone: UserTimeZone!
-    var hasNickName: Bool = false
+
     var showAdjuster: Bool = false
     var time: Date = Date()
 
-    var timeLabel = UILabel()
-    var dateLabel = UILabel()
-    var nickNameLabel = UILabel()
-    var locationNameLabel = UILabel()
+    var timeDisplay = WorldTimeDisplay()
     var timeAdjuster = WorldTimeSlider()
 
     override var safeAreaInsets: UIEdgeInsets {
@@ -30,24 +27,7 @@ class WorldTimeCell: UITableViewCell, TimeListener {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        let view = self.contentView
-        self.dateLabel.font = FontUtil.font(of: 17)
-        self.dateLabel.textAlignment = .right
-
-        view.addSubview(self.dateLabel)
-
-        self.timeLabel.font = FontUtil.font(of: 45)
-        self.timeLabel.textAlignment = .right
-        view.addSubview(self.timeLabel)
-
-        self.nickNameLabel.font = FontUtil.font(of: 35)
-        self.nickNameLabel.adjustsFontSizeToFitWidth = true
-        self.nickNameLabel.minimumScaleFactor = 0.3
-        view.addSubview(self.nickNameLabel)
-
-        self.locationNameLabel.font = FontUtil.font(of: 17)
-        view.addSubview(self.locationNameLabel)
-
+        self.addSubview(self.timeDisplay)
         self.addSubview(self.timeAdjuster)
     }
 
@@ -55,19 +35,7 @@ class WorldTimeCell: UITableViewCell, TimeListener {
         super.layoutSubviews()
 
         let pin = self.contentView.pin
-
-        self.dateLabel.pin.top(pin.safeArea).right(pin.safeArea).width(140).height(25)
-        self.timeLabel.pin.below(of: self.dateLabel, aligned: .right).width(140).height(50)
-
-        if self.hasNickName {
-            self.locationNameLabel.isHidden = false
-            self.locationNameLabel.pin.left(pin.safeArea).top(pin.safeArea).height(25).before(of: self.dateLabel).marginRight(10)
-            self.nickNameLabel.pin.below(of: self.locationNameLabel, aligned: .left).before(of: self.timeLabel).marginRight(10).height(50)
-        } else {
-            self.nickNameLabel.pin.left(pin.safeArea).before(of: self.timeLabel, aligned: .top).marginRight(10).height(35)
-            self.locationNameLabel.isHidden = true
-        }
-
+        self.timeDisplay.pin.horizontally(pin.safeArea).top(pin.safeArea).height(WorldTimeDisplay.HEIGHT)
         if self.showAdjuster {
             self.timeAdjuster.isHidden = false
             self.timeAdjuster.pin.bottom().horizontally().height(WorldTimeSlider.HEIGHT)
@@ -79,27 +47,16 @@ class WorldTimeCell: UITableViewCell, TimeListener {
     func loadViewData(timezone: UserTimeZone, showAdjuster: Bool) {
         let time = TimeCenter.storedTime
         self.timezone = timezone
-        if let nick = timezone.nickName {
-            self.nickNameLabel.text = nick
-            self.locationNameLabel.text = timezone.location
-            self.hasNickName = true
-        } else {
-            self.nickNameLabel.text = timezone.location
-            self.locationNameLabel.text = nil
-            self.hasNickName = false
-        }
-        self.dateLabel.text = DateUtil.formatDate(time: time, with: self.timezone.timezone)
-        self.timeLabel.text = DateUtil.formatTime(time: time, with: self.timezone.timezone)
+        self.timeDisplay.loadViewData(timezone: timezone, time: time)
         self.showAdjuster = showAdjuster
         self.setNeedsLayout()
         self.layoutIfNeeded()
-        self.timeAdjuster.loadViewData(time: time, timezone: self.timezone)
+        self.timeAdjuster.loadViewData(timezone: self.timezone, time: time)
     }
 
     func onTimeUpdate(time: Date) {
-        self.dateLabel.text = DateUtil.formatDate(time: time, with: self.timezone.timezone)
-        self.timeLabel.text = DateUtil.formatTime(time: time, with: self.timezone.timezone)
-        self.timeAdjuster.loadViewData(time: time, timezone: self.timezone)
+        self.timeDisplay.onTimeUpdate(timezone: self.timezone, time: time)
+        self.timeAdjuster.loadViewData(timezone: self.timezone, time: time)
     }
 }
 
