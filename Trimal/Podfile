@@ -9,5 +9,6 @@ target 'Trimal' do
 
   pod 'PinLayout'
   pod 'SwiftIcons', '~> 2.2.0'
+  pod 'Cache'
 
 end

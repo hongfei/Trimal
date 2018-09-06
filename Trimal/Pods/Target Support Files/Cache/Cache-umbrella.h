@@ -10,9 +10,7 @@
 #endif
 #endif
 
-#import "YIInnerShadowLayer.h"
-#import "YIInnerShadowView.h"
 
-FOUNDATION_EXPORT double YIInnerShadowViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char YIInnerShadowViewVersionString[];
+FOUNDATION_EXPORT double CacheVersionNumber;
+FOUNDATION_EXPORT const unsigned char CacheVersionString[];
 
