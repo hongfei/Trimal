@@ -5,7 +5,7 @@
 
 import Foundation
 
-class UserTimeZone {
+class UserTimeZone: Codable {
     var timezone: TimeZone
     var location: String
     var nickName: String?

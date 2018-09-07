@@ -45,7 +45,7 @@ class WorldTimeCell: UITableViewCell, TimeListener {
     }
 
     func loadViewData(timezone: UserTimeZone, showAdjuster: Bool) {
-        let time = TimeCenter.storedTime
+        let time = TimeCenterService.storedTime
         self.timezone = timezone
         self.timeDisplay.loadViewData(timezone: timezone, time: time)
         self.showAdjuster = showAdjuster

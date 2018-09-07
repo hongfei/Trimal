@@ -16,6 +16,7 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     override var navigationItem: UINavigationItem {
         let navItem = UINavigationItem()
         navItem.title = "Time"
+        navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         return navItem
     }
 
@@ -48,7 +49,7 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        TimeCenter.toggleTimer(disableTimer: false)
+        TimeCenterService.toggleTimer(disableTimer: false)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,7 +58,7 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     }
 
     @IBAction func backToNow() {
-        TimeCenter.toggleTimer(disableTimer: false)
+        TimeCenterService.toggleTimer(disableTimer: false)
         self.hideBackToNowButton = true
         UIView.animate(withDuration: 0.3) {
             self.view.setNeedsLayout()
@@ -66,8 +67,8 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     }
 
     @IBAction func timerFired() {
-        TimeCenter.timerPublishTime(time: Date())
-        if TimeCenter.timerDisabled && self.hideBackToNowButton {
+        TimeCenterService.timerPublishTime(time: Date())
+        if TimeCenterService.timerDisabled && self.hideBackToNowButton {
             self.hideBackToNowButton = false
             UIView.animate(withDuration: 0.3) {
                 self.view.setNeedsLayout()

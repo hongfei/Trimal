@@ -34,7 +34,7 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
 
         if let worldTimeCell = cell as? WorldTimeCell {
             worldTimeCell.loadViewData(timezone: self.timezones[indexPath.row], showAdjuster: self.expandedCellIndex == indexPath.row)
-            TimeCenter.register(sender: indexPath.row, listener: worldTimeCell)
+            TimeCenterService.register(sender: indexPath.row, listener: worldTimeCell)
             return worldTimeCell
         } else {
             return UITableViewCell()

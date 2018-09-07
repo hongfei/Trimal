@@ -81,13 +81,13 @@ class WorldTimeSlider: UIView, UICollectionViewDataSource, UICollectionViewDeleg
         }
         let seconds = (scrollView.contentOffset.x - self.currentOffset) / WorldTimeSliderLayout.SLOT_WIDTH * 3600
         if let newTime = self.calendar.date(byAdding: .second, value: Int(seconds), to: self.currentTime) {
-            TimeCenter.publishNewTime(time: newTime)
+            TimeCenterService.publishNewTime(time: newTime)
         }
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.inDragging = true
-        TimeCenter.toggleTimer(disableTimer: true)
+        TimeCenterService.toggleTimer(disableTimer: true)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -95,9 +95,9 @@ class WorldTimeSlider: UIView, UICollectionViewDataSource, UICollectionViewDeleg
         let seconds = (scrollView.contentOffset.x - self.currentOffset) / WorldTimeSliderLayout.SLOT_WIDTH * 3600
         if let newTime = self.calendar.date(byAdding: .second, value: Int(seconds), to: self.currentTime) {
             if abs(newTime.timeIntervalSince(self.currentTime)) < 20 {
-                TimeCenter.toggleTimer(disableTimer: false)
+                TimeCenterService.toggleTimer(disableTimer: false)
             } else {
-                TimeCenter.toggleTimer(disableTimer: true)
+                TimeCenterService.toggleTimer(disableTimer: true)
             }
         }
     }

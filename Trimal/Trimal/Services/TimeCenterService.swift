@@ -5,7 +5,7 @@
 
 import Foundation
 
-class TimeCenter {
+class TimeCenterService {
     public static var storedTime: Date = Date()
     static var timerDisabled: Bool = false
     static var listeners: [Int:TimeListener] = [:]
