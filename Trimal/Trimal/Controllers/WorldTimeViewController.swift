@@ -16,7 +16,7 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     override var navigationItem: UINavigationItem {
         let navItem = UINavigationItem()
         navItem.title = "Time"
-        navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTimeZone))
         return navItem
     }
 
@@ -75,5 +75,10 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
                 self.view.layoutIfNeeded()
             }
         }
+    }
+    
+    @IBAction func addNewTimeZone() {
+        let viewController = NewTimeZoneViewController()
+        self.present(CornerRoundedNavigationController(rootViewController: viewController), animated: true)
     }
 }

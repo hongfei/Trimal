@@ -16,6 +16,8 @@ class UserTimeZoneRepository {
     static func addUserTimeZone(timezone: UserTimeZone) {
         if let storage = userTimeZoneStorage, let timezones = try? storage.object(forKey: STORAGE_KEY) {
             storeTimeZones(timezones + [timezone])
+        } else {
+            storeTimeZones([timezone])
         }
     }
 
