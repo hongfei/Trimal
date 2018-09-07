@@ -8,6 +8,8 @@ import PinLayout
 
 class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     var worldTimeList = WorldTimeList()
+    var backToNowButton = WorldTimeFloatingButton()
+    var hideBackToNowButton = true
     var timezones: [UserTimeZone] = MockData.timezones
     var timer: Timer!
 
@@ -24,6 +26,9 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
         self.view.addSubview(self.worldTimeList)
         self.worldTimeList.loadViewData(timezones: self.timezones)
 
+        self.backToNowButton.addTarget(self, action: #selector(backToNow), for: .touchUpInside)
+        self.view.addSubview(self.backToNowButton)
+
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
         RunLoop.main.add(self.timer, forMode: .commonModes)
     }
@@ -33,6 +38,12 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
 
         let pin = self.view.pin
         self.worldTimeList.pin.all(pin.safeArea)
+
+        if self.hideBackToNowButton {
+            self.backToNowButton.pin.bottom().marginBottom(-40).hCenter().width(80).height(40)
+        } else {
+            self.backToNowButton.pin.bottom().marginBottom(40).hCenter().width(80).height(40)
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -45,7 +56,23 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
         self.timer.invalidate()
     }
 
+    @IBAction func backToNow() {
+        TimeCenter.toggleTimer(disableTimer: false)
+        self.hideBackToNowButton = true
+        UIView.animate(withDuration: 0.3) {
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
+        }
+    }
+
     @IBAction func timerFired() {
         TimeCenter.timerPublishTime(time: Date())
+        if TimeCenter.timerDisabled && self.hideBackToNowButton {
+            self.hideBackToNowButton = false
+            UIView.animate(withDuration: 0.3) {
+                self.view.setNeedsLayout()
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }

@@ -7,8 +7,8 @@ import Foundation
 
 class TimeCenter {
     public static var storedTime: Date = Date()
-    private static var timerDisabled: Bool = false
-    private static var listeners: [Int:TimeListener] = [:]
+    static var timerDisabled: Bool = false
+    static var listeners: [Int:TimeListener] = [:]
 
     public static func publishNewTime(time: Date) {
         storedTime = time
