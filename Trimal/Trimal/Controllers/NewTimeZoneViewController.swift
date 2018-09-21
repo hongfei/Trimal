@@ -5,19 +5,52 @@
 
 import UIKit
 
-class NewTimeZoneViewController : UIViewController {
+class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating {
+    var cities: [String] = []
+    var filteredCitites: [String] = []
+    var searchController = UISearchController(searchResultsController: nil)
+
     override var navigationItem: UINavigationItem {
         let navItem = UINavigationItem()
         navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelNewTimeZone))
+        navItem.searchController = searchController
+        navItem.hidesSearchBarWhenScrolling = false
         return navItem
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .yellow
+        self.tableView.register(NewTimeCityListCell.self, forCellReuseIdentifier: "NewTimeCityListCell")
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        
+        self.filteredCitites = self.cities
     }
 
     @IBAction func cancelNewTimeZone() {
         self.navigationController?.dismiss(animated: true)
     }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredCitites.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "NewTimeCityListCell") as? NewTimeCityListCell {
+            cell.loadViewData(cityName: filteredCitites[indexPath.row])
+            return cell
+        }
+
+        return UITableViewCell()
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            self.filteredCitites = self.cities.filter({ city in city.contains(searchText) })
+        } else {
+            self.filteredCitites = self.cities
+        }
+        self.tableView.reloadData()
+    }
 }
+

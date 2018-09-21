@@ -79,6 +79,7 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     
     @IBAction func addNewTimeZone() {
         let viewController = NewTimeZoneViewController()
+        viewController.cities = TimeZoneService.getAllCities()
         self.present(CornerRoundedNavigationController(rootViewController: viewController), animated: true)
     }
 }
