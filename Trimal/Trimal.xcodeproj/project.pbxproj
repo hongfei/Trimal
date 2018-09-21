@@ -23,6 +23,7 @@
 		41307F8C660162A6E035565C /* WorldTimeFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307ECB176E655C16E1F462 /* WorldTimeFloatingButton.swift */; };
 		AB0AE6A22134FAE8007E5B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0AE6A12134FAE8007E5B5C /* AppDelegate.swift */; };
 		AB0AE6AD2134FAEA007E5B5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0AE6AC2134FAEA007E5B5C /* Assets.xcassets */; };
+		B6F6903FC00CF26AAFD7B404 /* NewTimeZoneNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F690C72D743AEA5B7DE9AD /* NewTimeZoneNickNameViewController.swift */; };
 		B6F6906B914E98E7827A9A5D /* FontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */; };
 		B6F69169A4834542CA7A94BE /* UserTimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69B24B9D31E22F4CBBDAB /* UserTimeZone.swift */; };
 		B6F6928864CDA6D29C164324 /* WorldTimeDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6983E9E53E94F3F53134E /* WorldTimeDisplay.swift */; };
@@ -53,6 +54,7 @@
 		AB0AE6B12134FAEA007E5B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6A5D2FD9F6CA1E262AA9B6A /* Pods_Trimal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trimal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F690BEABAB361989F68FBB /* UserTimeZoneService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeZoneService.swift; sourceTree = "<group>"; };
+		B6F690C72D743AEA5B7DE9AD /* NewTimeZoneNickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTimeZoneNickNameViewController.swift; sourceTree = "<group>"; };
 		B6F69639467D65BADDD50F1C /* UserTimeZoneRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeZoneRepository.swift; sourceTree = "<group>"; };
 		B6F6983E9E53E94F3F53134E /* WorldTimeDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeDisplay.swift; sourceTree = "<group>"; };
 		B6F6998A6C64116C79DB9329 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				41307C70F9E2E5E61D074FDC /* WorldTimeViewController.swift */,
 				413078F2F3D50E93E2BEFFCB /* NewTimeZoneViewController.swift */,
 				41307714D0AA223B92858949 /* CornerRoundedNavigationController.swift */,
+				B6F690C72D743AEA5B7DE9AD /* NewTimeZoneNickNameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				413076FB3DC7BAC63E4D16F3 /* TimeZoneRepository.swift in Sources */,
 				41307D582EF82B7C161E1AFE /* TimeZoneService.swift in Sources */,
 				41307152E210D6CAF1CD14FB /* NewTimeCityListCell.swift in Sources */,
+				B6F6903FC00CF26AAFD7B404 /* NewTimeZoneNickNameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,7 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
         let navItem = UINavigationItem()
         navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelNewTimeZone))
         navItem.searchController = searchController
+        navItem.searchController?.hidesNavigationBarDuringPresentation = false
         navItem.hidesSearchBarWhenScrolling = false
         return navItem
     }
@@ -23,7 +24,6 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
         self.tableView.register(NewTimeCityListCell.self, forCellReuseIdentifier: "NewTimeCityListCell")
         self.searchController.searchResultsUpdater = self
         self.searchController.obscuresBackgroundDuringPresentation = false
-        
         self.filteredCitites = self.cities
     }
 
@@ -42,6 +42,12 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
         }
 
         return UITableViewCell()
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nickNameController = NewTimeZoneNickNameViewController()
+        nickNameController.selectedCity = self.filteredCitites[indexPath.row]
+        self.navigationController?.pushViewController(nickNameController, animated: true)
     }
 
     func updateSearchResults(for searchController: UISearchController) {
