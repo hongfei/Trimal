@@ -55,6 +55,18 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
         tableView.reloadRows(at: [previous, indexPath], with: .automatic)
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let selectedTimeZone = self.timezones[indexPath.row]
+            UserTimeZoneService.deleteUserTimeZone(timezone: selectedTimeZone)
+            self.loadViewData(timezones: UserTimeZoneService.getAllUserTimeZones())
+        }
+    }
+
     func loadViewData(timezones: [UserTimeZone]) {
         self.timezones = timezones
         self.reloadData()

@@ -7,7 +7,7 @@ import UIKit
 
 class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating {
     var cities: [String] = []
-    var filteredCitites: [String] = []
+    var filteredCities: [String] = []
     var searchController = UISearchController(searchResultsController: nil)
 
     override var navigationItem: UINavigationItem {
@@ -22,9 +22,10 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(NewTimeCityListCell.self, forCellReuseIdentifier: "NewTimeCityListCell")
+        self.definesPresentationContext = true
         self.searchController.searchResultsUpdater = self
         self.searchController.obscuresBackgroundDuringPresentation = false
-        self.filteredCitites = self.cities
+        self.filteredCities = self.cities
     }
 
     @IBAction func cancelNewTimeZone() {
@@ -32,12 +33,12 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredCitites.count
+        return filteredCities.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NewTimeCityListCell") as? NewTimeCityListCell {
-            cell.loadViewData(cityName: filteredCitites[indexPath.row])
+            cell.loadViewData(cityName: filteredCities[indexPath.row])
             return cell
         }
 
@@ -46,15 +47,15 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nickNameController = NewTimeZoneNickNameViewController()
-        nickNameController.selectedCity = self.filteredCitites[indexPath.row]
+        nickNameController.selectedCity = self.filteredCities[indexPath.row]
         self.show(nickNameController, sender: self)
     }
 
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            self.filteredCitites = self.cities.filter({ city in city.contains(searchText) })
+            self.filteredCities = self.cities.filter({ city in city.contains(searchText) })
         } else {
-            self.filteredCitites = self.cities
+            self.filteredCities = self.cities
         }
         self.tableView.reloadData()
     }
