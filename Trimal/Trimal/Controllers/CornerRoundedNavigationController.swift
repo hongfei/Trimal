@@ -6,6 +6,9 @@
 import UIKit
 
 class CornerRoundedNavigationController: UINavigationController {
+
+    var onDismiss: (() -> Void)?
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

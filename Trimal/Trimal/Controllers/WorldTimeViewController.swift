@@ -10,7 +10,7 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     var worldTimeList = WorldTimeList()
     var backToNowButton = WorldTimeFloatingButton()
     var hideBackToNowButton = true
-    var timezones: [UserTimeZone] = MockData.timezones
+    var timezones: [UserTimeZone] = []
     var timer: Timer!
 
     override var navigationItem: UINavigationItem {
@@ -25,7 +25,6 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
 
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.92, green: 0.97, blue: 0.97, alpha: 1)
         self.view.addSubview(self.worldTimeList)
-        self.worldTimeList.loadViewData(timezones: self.timezones)
 
         self.backToNowButton.addTarget(self, action: #selector(backToNow), for: .touchUpInside)
         self.view.addSubview(self.backToNowButton)
@@ -47,14 +46,15 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.timezones = UserTimeZoneService.getAllUserTimeZones()
+        self.worldTimeList.loadViewData(timezones: self.timezones)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         TimeCenterService.toggleTimer(disableTimer: false)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.timer.invalidate()
     }
 
     @IBAction func backToNow() {
@@ -80,6 +80,8 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     @IBAction func addNewTimeZone() {
         let viewController = NewTimeZoneViewController()
         viewController.cities = TimeZoneService.getAllCities()
-        self.present(CornerRoundedNavigationController(rootViewController: viewController), animated: true)
+        let targetController = CornerRoundedNavigationController(rootViewController: viewController)
+        targetController.onDismiss = { self.viewWillAppear(true) }
+        self.present(targetController, animated: true)
     }
 }

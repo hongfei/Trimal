@@ -47,7 +47,7 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nickNameController = NewTimeZoneNickNameViewController()
         nickNameController.selectedCity = self.filteredCitites[indexPath.row]
-        self.navigationController?.pushViewController(nickNameController, animated: true)
+        self.show(nickNameController, sender: self)
     }
 
     func updateSearchResults(for searchController: UISearchController) {
