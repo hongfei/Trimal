@@ -35,9 +35,9 @@ class UserTimeZoneRepository {
         }
     }
 
-    static func deleteTimeZone(timezone: UserTimeZone) {
+    static func deleteTimeZone(uuid: String) {
         if let storage = userTimeZoneStorage, let timezones = try? storage.object(forKey: STORAGE_KEY) {
-            let timezonesAfterDeletion = timezones.filter({ tz in timezone.nickName != tz.nickName && timezone.location != tz.location })
+            let timezonesAfterDeletion = timezones.filter({ tz in tz.uuid != uuid })
             storeTimeZones(timezonesAfterDeletion)
         }
     }

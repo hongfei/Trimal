@@ -45,7 +45,7 @@ class NewTimeZoneNickNameViewController: UIViewController {
 
     @IBAction func saveNewTimeZone() {
         UserTimeZoneService.addUserTimeZone(nickName: self.nickNameField.text, location: self.selectedCity, timezone: self.selectedTimeZone)
-        self.navigationController?.dismiss(animated: true) {
+        self.dismiss(animated: true) {
             (self.navigationController as? CornerRoundedNavigationController)?.onDismiss?()
         }
     }

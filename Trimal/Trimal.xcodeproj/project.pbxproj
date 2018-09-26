@@ -11,7 +11,6 @@
 		4130711BD11DDA10365E83B5 /* timezones.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41307E3661BB9AC256ACB48A /* timezones.plist */; };
 		41307152E210D6CAF1CD14FB /* NewTimeCityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307D91F82EADC0D08F67DF /* NewTimeCityListCell.swift */; };
 		4130721F0334A22522EEEEDF /* WorldTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307F049FF1DFDAFEB9D69C /* WorldTimeCell.swift */; };
-		413074A01FE75A039C6DA4B8 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413073554A06E3981778B879 /* ImageRepository.swift */; };
 		413076FB3DC7BAC63E4D16F3 /* TimeZoneRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41307C23B28E5EE38B5F8481 /* TimeZoneRepository.swift */; };
 		4130772D06312008CAF6129C /* NewTimeZoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413078F2F3D50E93E2BEFFCB /* NewTimeZoneViewController.swift */; };
 		413078BD7F6A626F3CBF64D3 /* WorldTimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413070024E6462404C2CA6F7 /* WorldTimeList.swift */; };
@@ -27,17 +26,17 @@
 		B6F6903FC00CF26AAFD7B404 /* NewTimeZoneNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F690C72D743AEA5B7DE9AD /* NewTimeZoneNickNameViewController.swift */; };
 		B6F6906B914E98E7827A9A5D /* FontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */; };
 		B6F69169A4834542CA7A94BE /* UserTimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69B24B9D31E22F4CBBDAB /* UserTimeZone.swift */; };
+		B6F691B99B596D59F9693172 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69570C556276FE34B00D9 /* StringUtil.swift */; };
 		B6F6928864CDA6D29C164324 /* WorldTimeDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6983E9E53E94F3F53134E /* WorldTimeDisplay.swift */; };
 		B6F692F1F556900D50C3243C /* WorldTimeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69DBD044112B35E7BD59C /* WorldTimeSliderCell.swift */; };
 		B6F693CD9DFA18F248A02D7D /* UserTimeZoneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F690BEABAB361989F68FBB /* UserTimeZoneService.swift */; };
 		B6F69681086CEC3D4FF80615 /* UserTimeZoneRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F69639467D65BADDD50F1C /* UserTimeZoneRepository.swift */; };
-		B6F69C852B235A4C15FDCC38 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6998A6C64116C79DB9329 /* MockData.swift */; };
+		B6F69CB60BA1F5AE0997B1F6 /* CityImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F690ED4AA92C4AEE5AD6BE /* CityImageRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		413070024E6462404C2CA6F7 /* WorldTimeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeList.swift; sourceTree = "<group>"; };
 		4130705F9FA2A64E23CFE669 /* TimeCenterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCenterService.swift; sourceTree = "<group>"; };
-		413073554A06E3981778B879 /* ImageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		41307714D0AA223B92858949 /* CornerRoundedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRoundedNavigationController.swift; sourceTree = "<group>"; };
 		413078F2F3D50E93E2BEFFCB /* NewTimeZoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTimeZoneViewController.swift; sourceTree = "<group>"; };
 		41307BE6316C20D563093F60 /* WorldTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeSlider.swift; sourceTree = "<group>"; };
@@ -57,9 +56,10 @@
 		B6A5D2FD9F6CA1E262AA9B6A /* Pods_Trimal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trimal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6F690BEABAB361989F68FBB /* UserTimeZoneService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeZoneService.swift; sourceTree = "<group>"; };
 		B6F690C72D743AEA5B7DE9AD /* NewTimeZoneNickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTimeZoneNickNameViewController.swift; sourceTree = "<group>"; };
+		B6F690ED4AA92C4AEE5AD6BE /* CityImageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityImageRepository.swift; sourceTree = "<group>"; };
+		B6F69570C556276FE34B00D9 /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
 		B6F69639467D65BADDD50F1C /* UserTimeZoneRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeZoneRepository.swift; sourceTree = "<group>"; };
 		B6F6983E9E53E94F3F53134E /* WorldTimeDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeDisplay.swift; sourceTree = "<group>"; };
-		B6F6998A6C64116C79DB9329 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontUtil.swift; sourceTree = "<group>"; };
 		B6F69B24B9D31E22F4CBBDAB /* UserTimeZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimeZone.swift; sourceTree = "<group>"; };
 		B6F69DBD044112B35E7BD59C /* WorldTimeSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldTimeSliderCell.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 			children = (
 				41307D30BA63970D126CDDC1 /* DateUtil.swift */,
 				B6F69ADBFFF24B0DB2EABC37 /* FontUtil.swift */,
-				B6F6998A6C64116C79DB9329 /* MockData.swift */,
+				B6F69570C556276FE34B00D9 /* StringUtil.swift */,
 			);
 			path = Utilties;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 			children = (
 				B6F69639467D65BADDD50F1C /* UserTimeZoneRepository.swift */,
 				41307C23B28E5EE38B5F8481 /* TimeZoneRepository.swift */,
-				413073554A06E3981778B879 /* ImageRepository.swift */,
+				B6F690ED4AA92C4AEE5AD6BE /* CityImageRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -314,7 +314,6 @@
 				4130721F0334A22522EEEEDF /* WorldTimeCell.swift in Sources */,
 				41307950CDA63F833678A02A /* DateUtil.swift in Sources */,
 				B6F6906B914E98E7827A9A5D /* FontUtil.swift in Sources */,
-				B6F69C852B235A4C15FDCC38 /* MockData.swift in Sources */,
 				B6F69169A4834542CA7A94BE /* UserTimeZone.swift in Sources */,
 				41307B6AD29B990BD3257785 /* WorldTimeSlider.swift in Sources */,
 				B6F692F1F556900D50C3243C /* WorldTimeSliderCell.swift in Sources */,
@@ -329,7 +328,8 @@
 				41307D582EF82B7C161E1AFE /* TimeZoneService.swift in Sources */,
 				41307152E210D6CAF1CD14FB /* NewTimeCityListCell.swift in Sources */,
 				B6F6903FC00CF26AAFD7B404 /* NewTimeZoneNickNameViewController.swift in Sources */,
-				413074A01FE75A039C6DA4B8 /* ImageRepository.swift in Sources */,
+				B6F691B99B596D59F9693172 /* StringUtil.swift in Sources */,
+				B6F69CB60BA1F5AE0997B1F6 /* CityImageRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

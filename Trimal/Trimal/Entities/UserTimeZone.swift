@@ -6,11 +6,13 @@
 import Foundation
 
 class UserTimeZone: Codable {
+    var uuid: String
     var timezone: TimeZone
     var location: String
     var nickName: String?
 
-    init(nickName: String?, location: String, timezone: TimeZone) {
+    init(uuid: String, nickName: String?, location: String, timezone: TimeZone) {
+        self.uuid = uuid
         self.nickName = nickName
         self.location = location
         self.timezone = timezone

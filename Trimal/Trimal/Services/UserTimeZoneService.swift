@@ -12,7 +12,7 @@ class UserTimeZoneService {
         }
 
         let subLocation = String(subLocationSequence)
-        let userTimeZone = UserTimeZone(nickName: nil, location: subLocation, timezone: timezone)
+        let userTimeZone = UserTimeZone(uuid: StringUtil.uuid(), nickName: nil, location: subLocation, timezone: timezone)
         if let nick = nickName, !nick.trimmingCharacters(in: .whitespaces).isEmpty {
             userTimeZone.nickName = nick
         }
@@ -20,7 +20,11 @@ class UserTimeZoneService {
         UserTimeZoneRepository.addUserTimeZone(timezone: userTimeZone)
     }
 
-    class func getAllUserTimeZones() -> [UserTimeZone] {
+    static func getAllUserTimeZones() -> [UserTimeZone] {
         return UserTimeZoneRepository.getAllTimeZones()
+    }
+    
+    static func deleteUserTimeZone(timezone: UserTimeZone) {
+        UserTimeZoneRepository.deleteTimeZone(uuid: timezone.uuid)
     }
 }
