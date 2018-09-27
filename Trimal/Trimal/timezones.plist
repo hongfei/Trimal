@@ -139,7 +139,7 @@
         <key>Belfast, Northern Ireland, United Kingdom</key>
         <string>Europe/Belfast</string>
         <key>Belgrade, Serbia</key>
-        <string>EEurope/Belgrade</string>
+        <string>Europe/Belgrade</string>
         <key>Belmopan, Belize</key>
         <string>America/Belize</string>
         <key>Belushya Guba, Russia</key>
@@ -849,7 +849,7 @@
         <key>Oslo, Norway</key>
         <string>Europe/Oslo</string>
         <key>Ottawa, Ontario, Canada</key>
-        <string>AAmerica/Toronto</string>
+        <string>America/Toronto</string>
         <key>Ouagadougou, Burkina Faso</key>
         <string>Africa/Ouagadougou</string>
         <key>Palangka Raya, Central Kalimantan, Indonesia</key>
@@ -1187,7 +1187,7 @@
         <key>Vatican City, Vatican City State</key>
         <string>Europe/Vatican</string>
         <key>Venice, Italy</key>
-        <string>urope/Rome</string>
+        <string>Europe/Rome</string>
         <key>Veracruz, Veracruz, Mexico</key>
         <string>America/Mexico_City</string>
         <key>Verkhoyansk, Russia</key>
