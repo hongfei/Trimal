@@ -63,7 +63,11 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
             let selectedTimeZone = self.timezones[indexPath.row]
             UserTimeZoneService.deleteUserTimeZone(timezone: selectedTimeZone)
-            self.timezones = UserTimeZoneService.getAllUserTimeZones()
+            self.timezones.remove(at: indexPath.row)
+            
+            if self.expandedCellIndex == indexPath.row { self.expandedCellIndex = -1 }
+            else if self.expandedCellIndex > indexPath.row { self.expandedCellIndex -= 1 }
+            
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

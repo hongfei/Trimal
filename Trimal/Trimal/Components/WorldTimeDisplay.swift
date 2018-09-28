@@ -23,6 +23,7 @@ class WorldTimeDisplay: UIView {
         super.init(frame: frame)
 
         self.dateLabel.font = FontUtil.font(of: 17)
+        self.dateLabel.textColor = UIColor.darkGray
         self.dateLabel.textAlignment = .right
 
         self.addSubview(self.dateLabel)
@@ -37,6 +38,7 @@ class WorldTimeDisplay: UIView {
         self.addSubview(self.nickNameLabel)
 
         self.locationNameLabel.font = FontUtil.font(of: 17)
+        self.locationNameLabel.textColor = UIColor.darkGray
         self.addSubview(self.locationNameLabel)
     }
 

@@ -11,7 +11,7 @@ class DateUtil {
     public static let calendar = Calendar.current
 
     public static func formatDate(time: Date, with timezone: TimeZone) -> String {
-        dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateFormatter.dateFormat = "E, MMM dd, yyyy"
         dateFormatter.timeZone = timezone
         return dateFormatter.string(from: time)
     }
