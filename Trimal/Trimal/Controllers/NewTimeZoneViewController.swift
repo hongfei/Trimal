@@ -53,7 +53,7 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
 
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            self.filteredCities = self.cities.filter({ city in city.lowercased().contains(searchText) })
+            self.filteredCities = self.cities.filter({ city in city.lowercased().contains(searchText.lowercased()) })
         } else {
             self.filteredCities = self.cities
         }

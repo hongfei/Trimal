@@ -45,7 +45,7 @@ class WorldTimeDisplay: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.dateLabel.pin.top(pin.safeArea).right(pin.safeArea).width(140).height(25)
+        self.dateLabel.pin.top(pin.safeArea).right(pin.safeArea).width(150).height(25)
         self.timeLabel.pin.below(of: self.dateLabel, aligned: .right).width(140).height(50)
 
         if self.hasNickName {
@@ -53,7 +53,7 @@ class WorldTimeDisplay: UIView {
             self.locationNameLabel.pin.left(pin.safeArea).top(pin.safeArea).height(25).before(of: self.dateLabel).marginRight(10)
             self.nickNameLabel.pin.below(of: self.locationNameLabel, aligned: .left).before(of: self.timeLabel).marginRight(10).height(50)
         } else {
-            self.nickNameLabel.pin.left(pin.safeArea).before(of: self.timeLabel, aligned: .top).marginRight(10).height(35)
+            self.nickNameLabel.pin.left(pin.safeArea).before(of: self.timeLabel, aligned: .top).marginRight(10).height(37)
             self.locationNameLabel.isHidden = true
         }
     }
