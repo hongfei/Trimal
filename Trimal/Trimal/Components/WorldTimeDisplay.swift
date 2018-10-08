@@ -22,10 +22,11 @@ class WorldTimeDisplay: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        self.backgroundColor = .white
+
         self.dateLabel.font = FontUtil.font(of: 17)
         self.dateLabel.textColor = UIColor.darkGray
         self.dateLabel.textAlignment = .right
-
         self.addSubview(self.dateLabel)
 
         self.timeLabel.font = FontUtil.font(of: 45)

@@ -40,9 +40,9 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
         self.worldTimeList.pin.all(pin.safeArea)
 
         if self.hideBackToNowButton {
-            self.backToNowButton.pin.bottom().marginBottom(-40).hCenter().width(80).height(40)
+            self.backToNowButton.pin.bottom().marginBottom(-40).hCenter().width(40).height(40)
         } else {
-            self.backToNowButton.pin.bottom().marginBottom(40).hCenter().width(80).height(40)
+            self.backToNowButton.pin.bottom().marginBottom(40).hCenter().width(40).height(40)
         }
     }
 

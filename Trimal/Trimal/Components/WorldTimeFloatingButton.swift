@@ -5,9 +5,11 @@
 
 import UIKit
 import PinLayout
+import SwiftIcons
 
 class WorldTimeFloatingButton : UIButton {
-    var buttonText = UILabel()
+    let ICON_SIZE: CGFloat = CGFloat(30)
+    var backIcon: UIImageView = UIImageView()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -16,24 +18,21 @@ class WorldTimeFloatingButton : UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.backgroundColor = .gray
+        self.backgroundColor = .white
         self.layer.cornerRadius = 20
         self.layer.opacity = 0.8
-        self.layer.shadowRadius = 3
-        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowRadius = 1.5
+        self.layer.shadowColor = UIColor.gray.cgColor
         self.layer.shadowOpacity = 0.8
-        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.layer.shadowOffset = .zero
 
-        self.buttonText.text = "Now"
-        self.buttonText.font = FontUtil.font(of: 25)
-        self.buttonText.textColor = .white
-        self.buttonText.textAlignment = .center
-        self.addSubview(self.buttonText)
+        self.backIcon.image = UIImage(icon: .fontAwesomeSolid(.undo), size: CGSize(width: ICON_SIZE, height: ICON_SIZE))
+        self.addSubview(self.backIcon)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.buttonText.pin.all()
+        self.backIcon.pin.width(ICON_SIZE).height(ICON_SIZE).center()
     }
 }

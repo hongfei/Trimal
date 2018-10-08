@@ -21,6 +21,8 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
         self.delegate = self
         self.tableFooterView = UIView(frame: CGRect.zero)
         self.register(WorldTimeCell.self, forCellReuseIdentifier: "WorldTimeCell")
+
+        self.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

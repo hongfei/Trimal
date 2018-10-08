@@ -12,7 +12,7 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
 
     override var navigationItem: UINavigationItem {
         let navItem = UINavigationItem()
-        navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelNewTimeZone))
+        navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(cancelNewTimeZone))
         navItem.searchController = searchController
         navItem.searchController?.hidesNavigationBarDuringPresentation = false
         navItem.hidesSearchBarWhenScrolling = false
