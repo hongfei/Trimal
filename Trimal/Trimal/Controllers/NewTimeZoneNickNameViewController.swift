@@ -69,8 +69,8 @@ class NewTimeZoneNickNameViewController: UIViewController {
         self.selectedCountryLabel.pin.after(of: self.countryLabel, aligned: .center).height(of: self.countryLabel).right()
         self.timeZoneLabel.pin.below(of: self.countryLabel, aligned: .left).width(40%).height(30)
         self.currentTimeLabel.pin.after(of: self.timeZoneLabel, aligned: .center).height(of: self.timeZoneLabel).right()
-        self.nickNameLabel.pin.below(of: self.timeZoneLabel, aligned: .left).marginTop(15).height(20).horizontally()
-        self.nickNameField.pin.below(of: self.nickNameLabel, aligned: .left).height(30).horizontally()
+        self.nickNameLabel.pin.below(of: self.timeZoneLabel, aligned: .left).marginTop(15).height(20).right()
+        self.nickNameField.pin.below(of: self.nickNameLabel, aligned: .left).height(30).right()
     }
 
     @IBAction func saveNewTimeZone() {
