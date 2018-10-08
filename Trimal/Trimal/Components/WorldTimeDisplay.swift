@@ -53,7 +53,7 @@ class WorldTimeDisplay: UIView {
             self.locationNameLabel.pin.left(pin.safeArea).top(pin.safeArea).height(25).before(of: self.dateLabel).marginRight(10)
             self.nickNameLabel.pin.below(of: self.locationNameLabel, aligned: .left).before(of: self.timeLabel).marginRight(10).height(50)
         } else {
-            self.nickNameLabel.pin.left(pin.safeArea).before(of: self.timeLabel, aligned: .top).marginRight(10).height(37)
+            self.nickNameLabel.pin.left(pin.safeArea).before(of: self.timeLabel, aligned: .top).marginRight(10).height(40)
             self.locationNameLabel.isHidden = true
         }
     }
