@@ -13,17 +13,13 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     var timezones: [UserTimeZone] = []
     var timer: Timer!
 
-    override var navigationItem: UINavigationItem {
-        let navItem = UINavigationItem()
-        navItem.title = "Time"
-        navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTimeZone))
-        return navItem
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.92, green: 0.97, blue: 0.97, alpha: 1)
+        self.navigationItem.title = "Time"
+        self.setNavigationItems(isEditing: false)
+
         self.view.addSubview(self.worldTimeList)
 
         self.backToNowButton.addTarget(self, action: #selector(backToNow), for: .touchUpInside)
@@ -31,6 +27,7 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
 
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
         RunLoop.main.add(self.timer, forMode: .commonModes)
+
     }
 
     override func viewDidLayoutSubviews() {
@@ -83,5 +80,25 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
         let targetController = CornerRoundedNavigationController(rootViewController: viewController)
         targetController.onDismiss = { self.viewWillAppear(true) }
         self.present(targetController, animated: true)
+    }
+
+    @IBAction func editWorldTimeList() {
+        self.worldTimeList.setEditing(true, animated: true)
+        setNavigationItems(isEditing: true)
+    }
+
+    @IBAction func finishedEditing() {
+        self.worldTimeList.setEditing(false, animated: true)
+        setNavigationItems(isEditing: false)
+    }
+
+    func setNavigationItems(isEditing: Bool) {
+        if isEditing {
+            self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finishedEditing)), animated: true)
+            self.navigationItem.setLeftBarButton(nil, animated: true)
+        } else {
+            self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTimeZone)), animated: true)
+            self.navigationItem.setLeftBarButton(UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editWorldTimeList)), animated: true)
+        }
     }
 }

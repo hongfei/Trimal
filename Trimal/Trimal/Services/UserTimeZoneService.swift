@@ -27,4 +27,8 @@ class UserTimeZoneService {
     static func deleteUserTimeZone(timezone: UserTimeZone) {
         UserTimeZoneRepository.deleteTimeZone(uuid: timezone.uuid)
     }
+
+    class func saveSortedTimeZones(timezones: [UserTimeZone]) {
+        UserTimeZoneRepository.storeTimeZones(timezones)
+    }
 }

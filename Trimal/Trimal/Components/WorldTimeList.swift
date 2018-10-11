@@ -20,9 +20,9 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
         self.dataSource = self
         self.delegate = self
         self.tableFooterView = UIView(frame: CGRect.zero)
-        self.register(WorldTimeCell.self, forCellReuseIdentifier: "WorldTimeCell")
-
         self.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+
+        self.register(WorldTimeCell.self, forCellReuseIdentifier: "WorldTimeCell")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,6 +72,13 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+    }
+
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedUserTimeZone = self.timezones[sourceIndexPath.row]
+        self.timezones.remove(at: sourceIndexPath.row)
+        self.timezones.insert(movedUserTimeZone, at: destinationIndexPath.row)
+        UserTimeZoneService.saveSortedTimeZones(timezones: self.timezones)
     }
 
     func loadViewData(timezones: [UserTimeZone]) {

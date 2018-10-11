@@ -27,15 +27,15 @@ class WorldTimeCell: UITableViewCell, TimeListener {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        self.addSubview(self.timeDisplay)
+        self.contentView.addSubview(self.timeDisplay)
         self.addSubview(self.timeAdjuster)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        let pin = self.contentView.pin
-        self.timeDisplay.pin.horizontally(pin.safeArea).top(pin.safeArea).height(WorldTimeDisplay.HEIGHT)
+        self.timeDisplay.pin.horizontally(self.isEditing ? 10 : 0).top().height(WorldTimeDisplay.HEIGHT)
+
         if self.showAdjuster {
             self.timeAdjuster.isHidden = false
             self.timeAdjuster.pin.bottom().horizontally().height(WorldTimeSlider.HEIGHT)
