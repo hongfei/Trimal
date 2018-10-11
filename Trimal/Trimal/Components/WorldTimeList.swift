@@ -79,6 +79,7 @@ class WorldTimeList: UITableView, UITableViewDataSource, UITableViewDelegate {
         self.timezones.remove(at: sourceIndexPath.row)
         self.timezones.insert(movedUserTimeZone, at: destinationIndexPath.row)
         UserTimeZoneService.saveSortedTimeZones(timezones: self.timezones)
+        self.reloadData()
     }
 
     func loadViewData(timezones: [UserTimeZone]) {
