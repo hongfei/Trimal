@@ -31,6 +31,8 @@ class WorldTimeDisplay: UIView {
 
         self.timeLabel.font = FontUtil.font(of: 45)
         self.timeLabel.textAlignment = .right
+        self.timeLabel.adjustsFontSizeToFitWidth = true
+        self.timeLabel.minimumScaleFactor = 0.3
         self.addSubview(self.timeLabel)
 
         self.nickNameLabel.font = FontUtil.font(of: 35)
@@ -46,8 +48,8 @@ class WorldTimeDisplay: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.dateLabel.pin.top(pin.safeArea).right(pin.safeArea).width(150).height(25)
-        self.timeLabel.pin.below(of: self.dateLabel, aligned: .right).width(140).height(50)
+        self.dateLabel.pin.top(pin.safeArea).right(pin.safeArea).width(55%).height(25)
+        self.timeLabel.pin.below(of: self.dateLabel, aligned: .right).width(40%).height(50)
 
         if self.hasNickName {
             self.locationNameLabel.isHidden = false
