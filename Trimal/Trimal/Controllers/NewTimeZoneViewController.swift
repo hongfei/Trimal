@@ -14,7 +14,6 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
         let navItem = UINavigationItem()
         navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(cancelNewTimeZone))
         navItem.searchController = searchController
-        navItem.searchController?.hidesNavigationBarDuringPresentation = false
         navItem.hidesSearchBarWhenScrolling = false
         return navItem
     }
@@ -25,6 +24,8 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
         self.definesPresentationContext = true
         self.searchController.searchResultsUpdater = self
         self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.definesPresentationContext = false
         self.filteredCities = self.cities
     }
 
