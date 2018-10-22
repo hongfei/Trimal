@@ -26,7 +26,7 @@ class WorldTimeFloatingButton : UIButton {
         self.layer.shadowOpacity = 0.8
         self.layer.shadowOffset = .zero
 
-        self.backIcon.image = UIImage(icon: .fontAwesomeSolid(.undo), size: CGSize(width: ICON_SIZE, height: ICON_SIZE))
+        self.backIcon.image = UIImage(icon: .fontAwesomeSolid(.undo), size: CGSize(width: ICON_SIZE, height: ICON_SIZE), textColor: ColorUtil.themeColor)
         self.addSubview(self.backIcon)
     }
 

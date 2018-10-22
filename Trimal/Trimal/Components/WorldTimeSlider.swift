@@ -48,6 +48,7 @@ class WorldTimeSlider: UIView, UICollectionViewDataSource, UICollectionViewDeleg
         self.slider.delegate = self
         self.slider.showsHorizontalScrollIndicator = false
         self.slider.register(WorldTimeSliderCell.self, forCellWithReuseIdentifier: "WorldTimeSliderCell")
+        self.slider.backgroundColor = .clear
         self.addSubview(self.slider)
 
         self.centerRedLine.backgroundColor = .red

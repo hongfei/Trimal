@@ -16,7 +16,9 @@ class WorldTimeViewController: UIViewController, WorldTimeListDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.92, green: 0.97, blue: 0.97, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = ColorUtil.themeColor
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationItem.title = "Time"
         self.setNavigationItems(isEditing: false)
 
