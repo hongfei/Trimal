@@ -13,7 +13,6 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
     override var navigationItem: UINavigationItem {
         let navItem = UINavigationItem()
         navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(cancelNewTimeZone))
-        navItem.searchController = searchController
         navItem.hidesSearchBarWhenScrolling = false
         return navItem
     }
@@ -22,11 +21,21 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
         super.viewDidLoad()
         self.tableView.register(NewTimeCityListCell.self, forCellReuseIdentifier: "NewTimeCityListCell")
         self.definesPresentationContext = true
+        self.definesPresentationContext = false
+        self.filteredCities = self.cities
+        setSearchBar()
+    }
+    
+    func setSearchBar() {
         self.searchController.searchResultsUpdater = self
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.hidesNavigationBarDuringPresentation = false
-        self.definesPresentationContext = false
-        self.filteredCities = self.cities
+        self.searchController.searchBar.barTintColor = .white
+        if let textfield = self.searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        }
+        
+        self.tableView.tableHeaderView = self.searchController.searchBar
     }
 
     @IBAction func cancelNewTimeZone() {
@@ -49,7 +58,8 @@ class NewTimeZoneViewController : UITableViewController, UISearchResultsUpdating
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nickNameController = NewTimeZoneNickNameViewController()
         nickNameController.city = self.filteredCities[indexPath.row]
-        self.show(nickNameController, sender: self)
+        self.searchController.isActive = false
+        self.navigationController?.pushViewController(nickNameController, animated: true)
     }
 
     func updateSearchResults(for searchController: UISearchController) {
