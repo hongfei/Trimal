@@ -23,25 +23,33 @@ class NewTimeZoneNickNameViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
 
+        let labelFont = FontUtil.pingFangTCMedium(size: 20)
+        let valueFont = FontUtil.pingFangTCRegular(size: 17)
+        
         self.cityLabel.text = "City"
-        self.cityLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        self.cityLabel.font = labelFont
+        self.selectedCityLabel.font = valueFont
         self.view.addSubview(self.cityLabel)
+        
         self.view.addSubview(self.selectedCityLabel)
 
         self.countryLabel.text = "Country/Area"
-        self.countryLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        self.countryLabel.font = labelFont
+        self.selectedCountryLabel.font = valueFont
         self.view.addSubview(self.countryLabel)
         self.view.addSubview(self.selectedCountryLabel)
 
         self.timeZoneLabel.text = "Time"
-        self.timeZoneLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        self.timeZoneLabel.font = labelFont
+        self.currentTimeLabel.font = valueFont
         self.view.addSubview(self.timeZoneLabel)
         self.view.addSubview(self.currentTimeLabel)
 
         self.nickNameLabel.text = "Nickname for this timezone? (Optional)"
-        self.nickNameLabel.font = UIFont.systemFont(ofSize: 15)
+        self.nickNameLabel.font = FontUtil.pingFangTCRegular(size: 15)
         self.view.addSubview(self.nickNameLabel)
         self.nickNameField.placeholder = "Timezone nickname"
+        self.nickNameField.font = valueFont
         self.view.addSubview(self.nickNameField)
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(saveNewTimeZone))
@@ -63,11 +71,11 @@ class NewTimeZoneNickNameViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        self.cityLabel.pin.left(5%).marginTop(30).height(30).width(40%)
+        self.cityLabel.pin.left(5%).marginTop(30).height(30).width(50%)
         self.selectedCityLabel.pin.after(of: self.cityLabel, aligned: .center).height(of: self.cityLabel).right()
-        self.countryLabel.pin.below(of: self.cityLabel, aligned: .left).width(40%).height(30)
+        self.countryLabel.pin.below(of: self.cityLabel, aligned: .left).width(50%).height(30)
         self.selectedCountryLabel.pin.after(of: self.countryLabel, aligned: .center).height(of: self.countryLabel).right()
-        self.timeZoneLabel.pin.below(of: self.countryLabel, aligned: .left).width(40%).height(30)
+        self.timeZoneLabel.pin.below(of: self.countryLabel, aligned: .left).width(50%).height(30)
         self.currentTimeLabel.pin.after(of: self.timeZoneLabel, aligned: .center).height(of: self.timeZoneLabel).right()
         self.nickNameLabel.pin.below(of: self.timeZoneLabel, aligned: .left).marginTop(15).height(20).right()
         self.nickNameField.pin.below(of: self.nickNameLabel, aligned: .left).height(30).right()

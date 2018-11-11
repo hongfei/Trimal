@@ -20,6 +20,7 @@ class NewTimeCityListCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        self.cityName.font = FontUtil.pingFangTCRegular(size: 17)
         self.addSubview(self.cityName)
     }
 

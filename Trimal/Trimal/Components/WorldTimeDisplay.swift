@@ -24,23 +24,23 @@ class WorldTimeDisplay: UIView {
 
         self.backgroundColor = .white
 
-        self.dateLabel.font = FontUtil.font(of: 17)
+        self.dateLabel.font = FontUtil.pingFangTCRegular(size: 17)
         self.dateLabel.textColor = UIColor.darkGray
         self.dateLabel.textAlignment = .right
         self.addSubview(self.dateLabel)
 
-        self.timeLabel.font = FontUtil.font(of: 45)
+        self.timeLabel.font = FontUtil.pingFangTCRegular(size: 45)
         self.timeLabel.textAlignment = .right
         self.timeLabel.adjustsFontSizeToFitWidth = true
         self.timeLabel.minimumScaleFactor = 0.3
         self.addSubview(self.timeLabel)
 
-        self.nickNameLabel.font = FontUtil.font(of: 35)
+        self.nickNameLabel.font = FontUtil.pingFangTCRegular(size: 35)
         self.nickNameLabel.adjustsFontSizeToFitWidth = true
         self.nickNameLabel.minimumScaleFactor = 0.3
         self.addSubview(self.nickNameLabel)
 
-        self.locationNameLabel.font = FontUtil.font(of: 17)
+        self.locationNameLabel.font = FontUtil.pingFangTCRegular(size: 17)
         self.locationNameLabel.textColor = UIColor.darkGray
         self.addSubview(self.locationNameLabel)
     }

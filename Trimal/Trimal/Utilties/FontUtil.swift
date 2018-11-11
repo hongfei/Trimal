@@ -6,7 +6,15 @@
 import UIKit
 
 class FontUtil {
-    public static func font(of size: CGFloat) -> UIFont {
-        return UIFont.systemFont(ofSize: size)
+    static func pingFangTCLight(size: CGFloat) -> UIFont? {
+        return UIFont(name: "PingFangTC-Light", size: size)
+    }
+    
+    static func pingFangTCRegular(size: CGFloat) -> UIFont? {
+        return UIFont(name: "PingFangTC-Regular", size: size)
+    }
+    
+    static func pingFangTCMedium(size: CGFloat) -> UIFont? {
+        return UIFont(name: "PingFangTC-Medium", size: size)
     }
 }
