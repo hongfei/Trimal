@@ -24,6 +24,7 @@ class WorldTimeSliderCell: UICollectionViewCell {
 
         self.timeLabel.textAlignment = .center
         self.timeLabel.backgroundColor = .white
+        self.timeLabel.font = FontUtil.pingFangTCLight(size: 15)
         self.addSubview(self.timeLabel)
     }
 
